@@ -23,9 +23,12 @@ const fileRouter = (async (c) => {
 
     c.header("Content-Type", "text/html");
 
-    const theme = getCookie(c, "syft-theme");
+    let theme = getCookie(c, "syft-theme");
 
-    if (!theme) setCookie(c, "syft-theme", "dark");
+    if (!theme) {
+        setCookie(c, "syft-theme", "dark");
+        theme = "dark";
+    }
 
     const userAgent = c.req.header("user-agent") ?? "";
     const acceptLanguage = c.req.header("accept-language") ?? "";
