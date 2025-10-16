@@ -10,11 +10,14 @@ export const injectCrossDataZ = z.object({
 });
 export type InjectCrossData = z.infer<typeof injectCrossDataZ>;
 
-export type Env = {
+export interface CfEnv {
+    CF_VERSION_METADATA: WorkerVersionMetadata;
+}
+
+export type HonoCtxEnv = {
     Bindings: {};
     Variables: { InjectCrossData?: InjectCrossData };
-    CF_VERSION_METADATA: WorkerVersionMetadata;
-};
+} & CfEnv;
 
 export type Recipe<T> = (draft: Draft<T>) => Draft<T> | void;
 export type PartialDeep<T> = T extends object

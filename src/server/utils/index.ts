@@ -1,8 +1,8 @@
-import { Env, InjectCrossData } from "@/shared/types";
+import { HonoCtxEnv, InjectCrossData } from "@/shared/types";
 import { Context } from "hono";
 
 export const injectCrossDataToCtx = (
-    ctx: Context<Env>,
+    ctx: Context<HonoCtxEnv>,
     crossData: Partial<InjectCrossData>
 ) => {
     const prevInject = ctx.get("InjectCrossData");

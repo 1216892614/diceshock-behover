@@ -11,30 +11,18 @@ import {
     RouterServer,
 } from "@tanstack/react-router/ssr/server";
 import { Context } from "hono";
-import { Env } from "@/shared/types";
-import themeGet from "./themeGet";
+import { HonoCtxEnv } from "@/shared/types";
+import themeGet from "../utils/themeGet";
 
-import { createRouter as createDiceshockRouter } from "@/apps/diceshock/router";
-import { createRouter as createRunesparkRouter } from "@/apps/runespark/router";
+import { createRouter } from "@/apps/runespark/router";
 
 import { CrossDataProvider } from "@/client/hooks/useCrossData";
 import { ServerCtxProvider } from "@/client/hooks/useServerCtx";
 
-export default async function fileRouter(c: Context<Env>) {
-    const urlObj = new URL(c.req.url);
-
-    const site: "diceshock" | "runespark" = urlObj.pathname.startsWith(
-        "/runespark"
-    )
-        ? "runespark"
-        : "diceshock";
-
+export default async function runesparkRouter(c: Context<HonoCtxEnv>) {
     const handler = createRequestHandler({
         request: c.req.raw,
-        createRouter:
-            site === "runespark"
-                ? createRunesparkRouter
-                : createDiceshockRouter,
+        createRouter,
     });
 
     c.header("Content-Type", "text/html");
@@ -62,27 +50,12 @@ export default async function fileRouter(c: Context<Env>) {
                         <ViteClient />
                         <ReactRefresh />
 
-                        {site === "runespark" && (
-                            <Script src="/src/apps/runespark/client.tsx" />
-                        )}
+                        <Script src="/src/apps/runespark/client.tsx" />
 
-                        {site === "runespark" && (
-                            <Link
-                                href="/src/apps/runespark/style.css"
-                                rel="stylesheet"
-                            />
-                        )}
-
-                        {site === "diceshock" && (
-                            <Script src="/src/apps/diceshock/client.tsx" />
-                        )}
-
-                        {site === "diceshock" && (
-                            <Link
-                                href="/src/apps/diceshock/style.css"
-                                rel="stylesheet"
-                            />
-                        )}
+                        <Link
+                            href="/src/apps/runespark/style.css"
+                            rel="stylesheet"
+                        />
                     </head>
 
                     <body>

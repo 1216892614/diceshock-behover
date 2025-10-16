@@ -1,9 +1,33 @@
-"$schema"= "node_modules/wrangler/config-schema.json"
+"$schema" = "node_modules/wrangler/config-schema.json"
 
-name= "syft-web-beyond"
-compatibility_date= "2025-09-24"
-main= "./src/main.tsx"
-compatibility_flags= ["nodejs_compat"]
+name = "syft-web-beyond"
+compatibility_date = "2025-09-24"
+main = "./src/main.tsx"
+compatibility_flags = ["nodejs_compat"]
 
 [version_metadata]
 binding = "CF_VERSION_METADATA"
+
+[[routes]]
+pattern = "diceshock.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "runespark.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "api.diceshock.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "api.runespark.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "edge.diceshock.com/*"
+custom_domain = true
+
+[[routes]]
+pattern = "edge.runespark.com/*"
+custom_domain = true

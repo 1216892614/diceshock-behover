@@ -1,4 +1,4 @@
 import { createFactory } from "hono/factory";
-import type { Env } from "@/shared/types";
+import type { HonoCtxEnv } from "@/shared/types";
 
-export const FACTORY = createFactory<Env>({});
+export const FACTORY = createFactory<HonoCtxEnv>({});
