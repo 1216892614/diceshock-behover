@@ -2,7 +2,7 @@ import { atom, useAtomValue } from "jotai";
 import React, { createContext, useContext, useMemo } from "react";
 import LZString from "lz-string";
 import { Context } from "hono";
-import { Env, InjectCrossData, injectCrossDataZ } from "@/shared/types";
+import { HonoCtxEnv, InjectCrossData, injectCrossDataZ } from "@/shared/types";
 import useHydrateOptionalAtom from "./useHydrateOptionalAtoms";
 
 const INJECTION_OBJ = "__SYFT_SERVER_CTX_DATA__";
@@ -11,7 +11,7 @@ const ServerDataA = atom<InjectCrossData | null>(null);
 const CrossContext = createContext<InjectCrossData | null>(null);
 
 export const CrossDataProvider: React.FC<{
-    c: Context<Env>;
+    c: Context<HonoCtxEnv>;
     children: React.ReactNode;
 }> = ({ c, children }) => {
     const data = c.get("InjectCrossData") ?? {};
