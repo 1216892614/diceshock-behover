@@ -22,7 +22,11 @@ export default defineConfig({
             generatedRouteTree: "src/apps/runespark/routeTree.gen.ts",
         }),
         cloudflare(),
-        ssrPlugin(),
+        ssrPlugin({
+            hotReload: {
+                ignore: ["./src/client/**/*.tsx", "./src/apps/**/*.tsx"],
+            },
+        }),
         react(),
     ],
     resolve: {
