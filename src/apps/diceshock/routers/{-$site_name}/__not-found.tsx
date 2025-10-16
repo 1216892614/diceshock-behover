@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/__not-found')({
+export const Route = createFileRoute('/{-$site_name}/__not-found')({
   component: RouteComponent,
 })
 

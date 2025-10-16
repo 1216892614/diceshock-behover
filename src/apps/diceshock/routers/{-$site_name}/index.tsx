@@ -4,7 +4,7 @@ import TitleScreen from "@/client/components/home-page/TitleScreen";
 import NavBar from "@/client/components/NavBar";
 import { createFileRoute, useParams } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/_home-page/")({
+export const Route = createFileRoute("/{-$site_name}/")({
     component: Home,
 });
 

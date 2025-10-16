@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { injectCrossDataToCtx } from "../utils";
+import { FACTORY } from "../factory";
 
 const browserZ = z.enum([
     "chrome",
@@ -62,26 +64,26 @@ export function parseOSFromUserAgent(userAgent: string): OperatingSystem {
 }
 
 export function parseLanguage(acceptLanguage: string): string {
-    if (!acceptLanguage) return "zh-CN";
+    if (!acceptLanguage) return "unknown";
 
     const languages = acceptLanguage
         .split(",")
         .map((lang) => lang.split(";").at(0)?.trim() ?? "")
         .filter((lang) => lang.length > 0);
 
-    return languages.at(0) || "zh-CN";
+    return languages.at(0) || "unknown";
 }
 
 export function parseUserAgentMeta(
-    userAgent: string,
-    acceptLanguage: string,
+    userAgent?: string,
+    acceptLanguage?: string,
     ip?: string
 ): UserAgentMeta {
     const meta = {
-        os: parseOSFromUserAgent(userAgent),
-        browser: parseBrowserFromUserAgent(userAgent),
-        language: parseLanguage(acceptLanguage),
-        userAgent: userAgent,
+        os: userAgent ? parseOSFromUserAgent(userAgent) : "unknown",
+        browser: userAgent ? parseBrowserFromUserAgent(userAgent) : "unknown",
+        language: acceptLanguage ? parseLanguage(acceptLanguage) : "unknown",
+        userAgent: userAgent || "unknown",
         ip: ip || "unknown",
         timestamp: Date.now(),
     };
@@ -125,3 +127,21 @@ export function safeParseUserAgentMeta(
         };
     }
 }
+
+const BLACK_LIST = [/^\/api/, /^\/edge/];
+
+const serverMetaInj = FACTORY.createMiddleware(async (c, next) => {
+    if (BLACK_LIST.some((re) => re.test(c.req.path))) return await next();
+
+    const userAgent = c.req.header("user-agent");
+    const acceptLanguage = c.req.header("accept-language");
+    const ip = c.req.header("cf-connecting-ip");
+
+    const UserAgentMeta = parseUserAgentMeta(userAgent, acceptLanguage, ip);
+
+    injectCrossDataToCtx(c, { UserAgentMeta });
+
+    return await next();
+});
+
+export default serverMetaInj;
