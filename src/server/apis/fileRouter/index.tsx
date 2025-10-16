@@ -23,11 +23,11 @@ import { ServerCtxProvider } from "@/client/hooks/useServerCtx";
 export default async function fileRouter(c: Context<Env>) {
     const urlObj = new URL(c.req.url);
 
-    const site: "diceshock" | "runespark" =
-        urlObj.hostname.startsWith("runespark.") ||
-        urlObj.pathname.startsWith("/runespark")
-            ? "runespark"
-            : "diceshock";
+    const site: "diceshock" | "runespark" = urlObj.pathname.startsWith(
+        "/runespark"
+    )
+        ? "runespark"
+        : "diceshock";
 
     const handler = createRequestHandler({
         request: c.req.raw,
