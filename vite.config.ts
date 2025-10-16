@@ -3,13 +3,12 @@ import { defineConfig } from "vite";
 import ssrPlugin from "vite-ssr-components/plugin";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
 import path from "node:path";
 
 export default defineConfig({
-    server: { hmr: { overlay: false } },
     plugins: [
         tailwindcss(),
-        cloudflare(),
         tanstackRouter({
             target: "react",
             autoCodeSplitting: true,
@@ -22,7 +21,9 @@ export default defineConfig({
             routesDirectory: "src/apps/runespark/routers",
             generatedRouteTree: "src/apps/runespark/routeTree.gen.ts",
         }),
+        cloudflare(),
         ssrPlugin(),
+        react(),
     ],
     resolve: {
         alias: {
