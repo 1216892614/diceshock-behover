@@ -13,7 +13,7 @@ pattern = "diceshock.com"
 custom_domain = true
 
 [[routes]]
-pattern = "runespark.com"
+pattern = "runespark.org"
 custom_domain = true
 
 [[routes]]
@@ -21,7 +21,7 @@ pattern = "api.diceshock.com"
 custom_domain = true
 
 [[routes]]
-pattern = "api.runespark.com"
+pattern = "api.runespark.org"
 custom_domain = true
 
 [[routes]]
@@ -29,5 +29,5 @@ pattern = "edge.diceshock.com"
 custom_domain = true
 
 [[routes]]
-pattern = "edge.runespark.com"
+pattern = "edge.runespark.org"
 custom_domain = true

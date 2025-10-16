@@ -14,15 +14,15 @@ const fetchMapper: (
 
         let prefix: string | null = null;
 
-        if (host === "api.diceshock.com" || host === "api.runespark.com")
+        if (host === "api.diceshock.com" || host === "api.runespark.org")
             prefix = "/api";
 
-        if (host === "edge.diceshock.com" || host === "edge.runespark.com")
+        if (host === "edge.diceshock.com" || host === "edge.runespark.org")
             prefix = "/edge";
 
         if (host === "diceshock.com") prefix = "/diceshock";
 
-        if (host === "runespark.com") prefix = "/runespark";
+        if (host === "runespark.org") prefix = "/runespark";
 
         if (import.meta.env.DEV) prefix = "/";
 
