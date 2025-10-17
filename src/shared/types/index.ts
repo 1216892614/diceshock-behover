@@ -1,7 +1,10 @@
 /*global NodeJS */
 
 import { userAgentMetaZ } from "@/server/middlewares/serverMetaInj";
-import type { WorkerVersionMetadata } from "@cloudflare/workers-types";
+import type {
+    D1Database,
+    WorkerVersionMetadata,
+} from "@cloudflare/workers-types";
 import type { Draft } from "immer";
 import z from "zod";
 
@@ -12,12 +15,13 @@ export type InjectCrossData = z.infer<typeof injectCrossDataZ>;
 
 export interface CfEnv {
     CF_VERSION_METADATA: WorkerVersionMetadata;
+    DB: D1Database;
 }
 
 export type HonoCtxEnv = {
-    Bindings: {};
+    Bindings: CfEnv;
     Variables: { InjectCrossData?: InjectCrossData };
-} & CfEnv;
+};
 
 export type Recipe<T> = (draft: Draft<T>) => Draft<T> | void;
 export type PartialDeep<T> = T extends object
