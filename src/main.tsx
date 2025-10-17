@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import type { ExportedHandler } from "@cloudflare/workers-types";
-import type { CfEnv, HonoCtxEnv } from "@/shared/types";
+import type { HonoCtxEnv } from "@/shared/types";
 
 import edgeRoot from "@/server/apis/edgeRoot";
 import apisRoot from "@/server/apis/apisRoot";
@@ -27,4 +27,6 @@ app.post("/apis/*", apisRoot);
 app.put("/apis/*", apisRoot);
 app.delete("/apis/*", apisRoot);
 
-export default { fetch: fetchMapper(app) } satisfies ExportedHandler<CfEnv>;
+export default {
+    fetch: fetchMapper(app),
+} satisfies ExportedHandler<Cloudflare.Env>;

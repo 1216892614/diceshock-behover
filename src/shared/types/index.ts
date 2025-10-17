@@ -6,6 +6,7 @@ import type {
     D1Database,
     WorkerVersionMetadata,
 } from "@cloudflare/workers-types";
+import { Env } from "hono";
 import z from "zod";
 
 export const injectCrossDataZ = z.object({
@@ -13,14 +14,9 @@ export const injectCrossDataZ = z.object({
 });
 export type InjectCrossData = z.infer<typeof injectCrossDataZ>;
 
-export interface CfEnv {
-    CF_VERSION_METADATA: WorkerVersionMetadata;
-    DB: D1Database;
-}
-
-export type HonoCtxEnv = {
-    Bindings: CfEnv;
+export interface HonoCtxEnv extends Env {
+    Bindings: Cloudflare.Env;
     Variables: { InjectCrossData?: InjectCrossData };
-};
+}
 
 export type ApiRouter = typeof trpcServer.appRouter;

@@ -1,4 +1,3 @@
-import { CfEnv } from "@/shared/types";
 import type {
     Response as CfResponse,
     ExportedHandlerFetchHandler,
@@ -7,7 +6,7 @@ import { app as mainApp } from "@/main";
 
 const fetchMapper: (
     app: typeof mainApp
-) => ExportedHandlerFetchHandler<CfEnv> =
+) => ExportedHandlerFetchHandler<Cloudflare.Env> =
     (app) => async (request, env, ctx) => {
         const url = new URL(request.url);
         const host = url.hostname;
