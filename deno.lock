@@ -3,12 +3,15 @@
   "specifiers": {
     "npm:@cloudflare/vite-plugin@^1.13.7": "1.13.10_vite@7.1.9__@types+node@24.6.2__picomatch@4.0.3_wrangler@4.42.0__unenv@2.0.0-rc.21__workerd@1.20251001.0_unenv@2.0.0-rc.21_@types+node@24.6.2_@cloudflare+workers-types@4.20251011.0",
     "npm:@cloudflare/workers-types@^4.20251011.0": "4.20251011.0",
+    "npm:@hono/trpc-server@0.4": "0.4.0_@trpc+server@11.6.0__typescript@5.9.3_hono@4.9.9_typescript@5.9.3",
     "npm:@paralleldrive/cuid2@^2.2.2": "2.2.2",
     "npm:@phosphor-icons/react@^2.1.10": "2.1.10_react@19.2.0_react-dom@19.2.0__react@19.2.0",
     "npm:@tailwindcss/vite@^4.1.14": "4.1.14_vite@7.1.9__@types+node@24.6.2__picomatch@4.0.3_@types+node@24.6.2",
     "npm:@tanstack/react-router-devtools@^1.132.23": "1.132.33_@tanstack+react-router@1.132.33__react@19.2.0__react-dom@19.2.0___react@19.2.0_react@19.2.0_react-dom@19.2.0__react@19.2.0_@types+node@24.6.2",
     "npm:@tanstack/react-router@^1.132.23": "1.132.33_react@19.2.0_react-dom@19.2.0__react@19.2.0",
     "npm:@tanstack/router-plugin@^1.132.23": "1.132.33_@tanstack+react-router@1.132.33__react@19.2.0__react-dom@19.2.0___react@19.2.0_vite@7.1.9__@types+node@24.6.2__picomatch@4.0.3_@babel+core@7.28.4_react@19.2.0_react-dom@19.2.0__react@19.2.0_@types+node@24.6.2",
+    "npm:@trpc/client@^11.6.0": "11.6.0_@trpc+server@11.6.0__typescript@5.9.3_typescript@5.9.3",
+    "npm:@trpc/server@^11.6.0": "11.6.0_typescript@5.9.3",
     "npm:@types/js-cookie@^3.0.6": "3.0.6",
     "npm:@types/node@^24.5.2": "24.6.2",
     "npm:@types/react-dom@^19.1.9": "19.2.0_@types+react@19.2.0",
@@ -745,6 +748,13 @@
       "os": ["win32"],
       "cpu": ["x64"]
     },
+    "@hono/trpc-server@0.4.0_@trpc+server@11.6.0__typescript@5.9.3_hono@4.9.9_typescript@5.9.3": {
+      "integrity": "sha512-LGlJfCmNIGMwcknZEIYdujVMs9OkNVazhpOhaz3kTWOXvNL660VOHpvvktosCiJrajyBY1RtIJKQ+IKaQvNuSg==",
+      "dependencies": [
+        "@trpc/server",
+        "hono"
+      ]
+    },
     "@img/sharp-darwin-arm64@0.33.5": {
       "integrity": "sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==",
       "optionalDependencies": [
@@ -1294,6 +1304,19 @@
     },
     "@tanstack/virtual-file-routes@1.132.31": {
       "integrity": "sha512-rxS8Cm2nIXroLqkm9pE/8X2lFNuvcTIIiFi5VH4PwzvKscAuaW3YRMN1WmaGDI2mVEn+GLaoY6Kc3jOczL5i4w=="
+    },
+    "@trpc/client@11.6.0_@trpc+server@11.6.0__typescript@5.9.3_typescript@5.9.3": {
+      "integrity": "sha512-DyWbYk2hd50BaVrXWVkaUnaSwgAF5g/lfBkXtkF1Aqlk6BtSzGUo3owPkgqQO2I5LwWy1+ra9TsSfBBvIZpTwg==",
+      "dependencies": [
+        "@trpc/server",
+        "typescript"
+      ]
+    },
+    "@trpc/server@11.6.0_typescript@5.9.3": {
+      "integrity": "sha512-skTso0AWbOZck40jwNeYv++AMZXNWLUWdyk+pB5iVaYmEKTuEeMoPrEudR12VafbEU6tZa8HK3QhBfTYYHDCdg==",
+      "dependencies": [
+        "typescript"
+      ]
     },
     "@types/babel__core@7.20.5": {
       "integrity": "sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==",
@@ -2433,12 +2456,15 @@
       "dependencies": [
         "npm:@cloudflare/vite-plugin@^1.13.7",
         "npm:@cloudflare/workers-types@^4.20251011.0",
+        "npm:@hono/trpc-server@0.4",
         "npm:@paralleldrive/cuid2@^2.2.2",
         "npm:@phosphor-icons/react@^2.1.10",
         "npm:@tailwindcss/vite@^4.1.14",
         "npm:@tanstack/react-router-devtools@^1.132.23",
         "npm:@tanstack/react-router@^1.132.23",
         "npm:@tanstack/router-plugin@^1.132.23",
+        "npm:@trpc/client@^11.6.0",
+        "npm:@trpc/server@^11.6.0",
         "npm:@types/js-cookie@^3.0.6",
         "npm:@types/node@^24.5.2",
         "npm:@types/react-dom@^19.1.9",

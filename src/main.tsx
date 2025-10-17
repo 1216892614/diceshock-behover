@@ -7,8 +7,11 @@ import apisRoot from "@/server/apis/apisRoot";
 import diceshockRouter from "@/server/apis/diceshock";
 import runesparkRouter from "@/server/apis/runespark";
 import fetchMapper from "@/server/fetchMapper";
+import trpcServer from "./server/middlewares/trpcServer";
 
 export const app = new Hono<{ Bindings: HonoCtxEnv }>();
+
+app.use("/apis/*", trpcServer);
 
 app.get("/diceshock/*", diceshockRouter);
 app.get("/runespark/*", runesparkRouter);

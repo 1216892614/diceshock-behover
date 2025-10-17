@@ -1,11 +1,11 @@
 /*global NodeJS */
 
 import { userAgentMetaZ } from "@/server/middlewares/serverMetaInj";
+import type * as trpcServer from "@/server/middlewares/trpcServer";
 import type {
     D1Database,
     WorkerVersionMetadata,
 } from "@cloudflare/workers-types";
-import type { Draft } from "immer";
 import z from "zod";
 
 export const injectCrossDataZ = z.object({
@@ -23,8 +23,4 @@ export type HonoCtxEnv = {
     Variables: { InjectCrossData?: InjectCrossData };
 };
 
-export type Recipe<T> = (draft: Draft<T>) => Draft<T> | void;
-export type PartialDeep<T> = T extends object
-    ? { [P in keyof T]+?: PartialDeep<T[P]> }
-    : T;
-export type NodeTimeout = NodeJS.Timeout;
+export type ApiRouter = typeof trpcServer.appRouter;
