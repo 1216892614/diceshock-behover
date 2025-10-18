@@ -46,10 +46,6 @@ function NotFound() {
                     <Link to="/" className="btn btn-ghost">
                         联系我们
                     </Link>
-
-                    <button onClick={seed} className="btn btn-xl">
-                        Seed
-                    </button>
                 </div>
             </div>
         </main>
