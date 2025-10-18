@@ -20,7 +20,7 @@ bucket_name = "diceshock"
 preview_bucket_name = "diceshock-preview"
 
 [[routes]]
-pattern = "next.diceshock.com"
+pattern = "diceshock.com"
 custom_domain = true
 
 [[routes]]

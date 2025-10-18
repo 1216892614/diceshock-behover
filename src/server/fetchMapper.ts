@@ -19,7 +19,7 @@ const fetchMapper: (
         if (host === "edge.diceshock.com" || host === "edge.runespark.org")
             prefix = "/edge";
 
-        if (host === "next.diceshock.com") prefix = "/diceshock";
+        if (host === "diceshock.com") prefix = "/diceshock";
 
         if (host === "runespark.org") prefix = "/runespark";
 
