@@ -31,13 +31,12 @@ const fetchMapper: (
 
         if (hostname === "runespark.org") prefix = "/runespark";
 
-        if (pathname.startsWith("/apis")) prefix = "/apis";
-
-        if (pathname.startsWith("/edge")) prefix = "/edge";
+        if (pathname.startsWith("/apis") || pathname.startsWith("/edge"))
+            prefix = "";
 
         if (import.meta.env.DEV) prefix = "/";
 
-        if (!prefix)
+        if (prefix === null)
             return new Response(`Unknown host: ${hostname}`, {
                 status: 404,
             }) as unknown as CfResponse;
