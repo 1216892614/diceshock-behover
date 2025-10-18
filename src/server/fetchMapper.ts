@@ -9,24 +9,34 @@ const fetchMapper: (
 ) => ExportedHandlerFetchHandler<Cloudflare.Env> =
     (app) => async (request, env, ctx) => {
         const url = new URL(request.url);
-        const host = url.hostname;
+        const { hostname, pathname } = url;
+
+        console.log(hostname, pathname);
 
         let prefix: string | null = null;
 
-        if (host === "api.diceshock.com" || host === "api.runespark.org")
-            prefix = "/api";
+        if (
+            hostname === "api.diceshock.com" ||
+            hostname === "api.runespark.org"
+        )
+            prefix = "/apis";
 
-        if (host === "edge.diceshock.com" || host === "edge.runespark.org")
+        if (
+            hostname === "edge.diceshock.com" ||
+            hostname === "edge.runespark.org"
+        )
             prefix = "/edge";
 
-        if (host === "diceshock.com") prefix = "/diceshock";
+        if (hostname === "diceshock.com") prefix = "/diceshock";
 
-        if (host === "runespark.org") prefix = "/runespark";
+        if (hostname === "runespark.org") prefix = "/runespark";
+
+        if (pathname.startsWith("/apis")) prefix = "/apis";
 
         if (import.meta.env.DEV) prefix = "/";
 
         if (!prefix)
-            return new Response(`Unknown host: ${host}`, {
+            return new Response(`Unknown host: ${hostname}`, {
                 status: 404,
             }) as unknown as CfResponse;
 

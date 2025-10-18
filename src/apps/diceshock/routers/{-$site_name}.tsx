@@ -24,6 +24,8 @@ function _Home() {
 }
 
 function NotFound() {
+    const seed = () => trpcClient.owned.seed.mutate().then(console.log);
+
     return (
         <main className="w-full h-screen relative">
             <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
@@ -46,6 +48,10 @@ function NotFound() {
                     <Link to="/" className="btn btn-ghost">
                         联系我们
                     </Link>
+
+                    <button onClick={seed} className="btn btn-xl">
+                        Seed
+                    </button>
                 </div>
             </div>
         </main>
