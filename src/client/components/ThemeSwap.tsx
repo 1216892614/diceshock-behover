@@ -2,10 +2,15 @@ import { MoonIcon, SunIcon } from "@phosphor-icons/react/dist/ssr";
 import { atom, useAtom } from "jotai";
 import { useEffect } from "react";
 import Cookie from "js-cookie";
+import clsx from "clsx";
 
 export const themeA = atom(null as "light" | "dark" | null);
 
-export default function ThemeSwap() {
+export default function ThemeSwap({
+    className,
+}: {
+    className?: { outer?: string; icon?: string };
+}) {
     const [theme, setTheme] = useAtom(themeA);
 
     useEffect(() => {
@@ -44,7 +49,7 @@ export default function ThemeSwap() {
     }, [theme]);
 
     return (
-        <label className="swap swap-rotate">
+        <label className={clsx("swap swap-rotate", className?.outer)}>
             <input
                 type="checkbox"
                 value="light"
@@ -54,9 +59,15 @@ export default function ThemeSwap() {
                 }}
             />
 
-            <SunIcon className="swap-off" weight="fill" />
+            <SunIcon
+                className={clsx("size-full swap-off", className?.icon)}
+                weight="fill"
+            />
 
-            <MoonIcon className="swap-on" weight="fill" />
+            <MoonIcon
+                className={clsx("size-full swap-on", className?.icon)}
+                weight="fill"
+            />
         </label>
     );
 }

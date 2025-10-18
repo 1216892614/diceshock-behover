@@ -107,8 +107,8 @@ const Header = () => (
                 </ul>
             </div>
 
-            <div className="navbar-end gap-2">
-                <ThemeSwap />
+            <div className="navbar-end gap-2 pr-2">
+                <ThemeSwap className={{ outer: "btn btn-circle btn-ghost", icon: "w-5" }} />
 
                 {/* <Link to="/agent" className="btn btn-ghost rounded-full pl-1">
                     <div className="avatar size-8 avatar-placeholder">
