@@ -56,6 +56,12 @@ export default async function diceshockRouter(c: Context<HonoCtxEnv>) {
                             href="/src/apps/diceshock/style.css"
                             rel="stylesheet"
                         />
+
+                        <link
+                            rel="icon"
+                            type="image/svg+xml"
+                            href="https://assets.diceshock.com/images/diceshock.favicon.svg"
+                        />
                     </head>
 
                     <body>

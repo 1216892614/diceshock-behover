@@ -56,6 +56,12 @@ export default async function runesparkRouter(c: Context<HonoCtxEnv>) {
                             href="/src/apps/runespark/style.css"
                             rel="stylesheet"
                         />
+
+                        <link
+                            rel="icon"
+                            type="image/svg+xml"
+                            href="https://assets.runespark.org/images/runespark.favicon.svg"
+                        />
                     </head>
 
                     <body>
