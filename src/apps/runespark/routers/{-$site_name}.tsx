@@ -5,6 +5,7 @@ import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/{-$site_name}")({
     component: _Home,
+    notFoundComponent: NotFound,
 });
 
 function _Home() {
@@ -16,4 +17,8 @@ function _Home() {
             <InPixelFilter />
         </>
     );
+}
+
+function NotFound() {
+    return <div>Hello "/__not-found"!</div>;
 }

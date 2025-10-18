@@ -14,7 +14,6 @@ import { Route as Char123Site_nameChar125IndexRouteImport } from './routers/{-$s
 import { Route as Char123Site_nameChar125InventoryRouteImport } from './routers/{-$site_name}/inventory'
 import { Route as Char123Site_nameChar125DiceshockAgentsRouteImport } from './routers/{-$site_name}/diceshock-agents'
 import { Route as Char123Site_nameChar125ContactUsRouteImport } from './routers/{-$site_name}/contact-us'
-import { Route as Char123Site_nameChar125_notFoundRouteImport } from './routers/{-$site_name}/__not-found'
 
 const Char123Site_nameChar125Route = Char123Site_nameChar125RouteImport.update({
   id: '/{-$site_name}',
@@ -45,29 +44,23 @@ const Char123Site_nameChar125ContactUsRoute =
     path: '/contact-us',
     getParentRoute: () => Char123Site_nameChar125Route,
   } as any)
-const Char123Site_nameChar125_notFoundRoute =
-  Char123Site_nameChar125_notFoundRouteImport.update({
-    id: '/__not-found',
-    getParentRoute: () => Char123Site_nameChar125Route,
-  } as any)
 
 export interface FileRoutesByFullPath {
-  '/{-$site_name}': typeof Char123Site_nameChar125_notFoundRoute
+  '/{-$site_name}': typeof Char123Site_nameChar125RouteWithChildren
   '/{-$site_name}/contact-us': typeof Char123Site_nameChar125ContactUsRoute
   '/{-$site_name}/diceshock-agents': typeof Char123Site_nameChar125DiceshockAgentsRoute
   '/{-$site_name}/inventory': typeof Char123Site_nameChar125InventoryRoute
   '/{-$site_name}/': typeof Char123Site_nameChar125IndexRoute
 }
 export interface FileRoutesByTo {
-  '/{-$site_name}': typeof Char123Site_nameChar125IndexRoute
   '/{-$site_name}/contact-us': typeof Char123Site_nameChar125ContactUsRoute
   '/{-$site_name}/diceshock-agents': typeof Char123Site_nameChar125DiceshockAgentsRoute
   '/{-$site_name}/inventory': typeof Char123Site_nameChar125InventoryRoute
+  '/{-$site_name}': typeof Char123Site_nameChar125IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/{-$site_name}': typeof Char123Site_nameChar125RouteWithChildren
-  '/{-$site_name}/__not-found': typeof Char123Site_nameChar125_notFoundRoute
   '/{-$site_name}/contact-us': typeof Char123Site_nameChar125ContactUsRoute
   '/{-$site_name}/diceshock-agents': typeof Char123Site_nameChar125DiceshockAgentsRoute
   '/{-$site_name}/inventory': typeof Char123Site_nameChar125InventoryRoute
@@ -83,14 +76,13 @@ export interface FileRouteTypes {
     | '/{-$site_name}/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/{-$site_name}'
     | '/{-$site_name}/contact-us'
     | '/{-$site_name}/diceshock-agents'
     | '/{-$site_name}/inventory'
+    | '/{-$site_name}'
   id:
     | '__root__'
     | '/{-$site_name}'
-    | '/{-$site_name}/__not-found'
     | '/{-$site_name}/contact-us'
     | '/{-$site_name}/diceshock-agents'
     | '/{-$site_name}/inventory'
@@ -138,18 +130,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123Site_nameChar125ContactUsRouteImport
       parentRoute: typeof Char123Site_nameChar125Route
     }
-    '/{-$site_name}/__not-found': {
-      id: '/{-$site_name}/__not-found'
-      path: ''
-      fullPath: '/{-$site_name}'
-      preLoaderRoute: typeof Char123Site_nameChar125_notFoundRouteImport
-      parentRoute: typeof Char123Site_nameChar125Route
-    }
   }
 }
 
 interface Char123Site_nameChar125RouteChildren {
-  Char123Site_nameChar125_notFoundRoute: typeof Char123Site_nameChar125_notFoundRoute
   Char123Site_nameChar125ContactUsRoute: typeof Char123Site_nameChar125ContactUsRoute
   Char123Site_nameChar125DiceshockAgentsRoute: typeof Char123Site_nameChar125DiceshockAgentsRoute
   Char123Site_nameChar125InventoryRoute: typeof Char123Site_nameChar125InventoryRoute
@@ -158,8 +142,6 @@ interface Char123Site_nameChar125RouteChildren {
 
 const Char123Site_nameChar125RouteChildren: Char123Site_nameChar125RouteChildren =
   {
-    Char123Site_nameChar125_notFoundRoute:
-      Char123Site_nameChar125_notFoundRoute,
     Char123Site_nameChar125ContactUsRoute:
       Char123Site_nameChar125ContactUsRoute,
     Char123Site_nameChar125DiceshockAgentsRoute:

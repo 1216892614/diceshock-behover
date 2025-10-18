@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routers/__root'
 import { Route as Char123Site_nameChar125RouteImport } from './routers/{-$site_name}'
 import { Route as Char123Site_nameChar125IndexRouteImport } from './routers/{-$site_name}/index'
-import { Route as Char123Site_nameChar125_notFoundRouteImport } from './routers/{-$site_name}/__not-found'
 
 const Char123Site_nameChar125Route = Char123Site_nameChar125RouteImport.update({
   id: '/{-$site_name}',
@@ -24,14 +23,9 @@ const Char123Site_nameChar125IndexRoute =
     path: '/',
     getParentRoute: () => Char123Site_nameChar125Route,
   } as any)
-const Char123Site_nameChar125_notFoundRoute =
-  Char123Site_nameChar125_notFoundRouteImport.update({
-    id: '/__not-found',
-    getParentRoute: () => Char123Site_nameChar125Route,
-  } as any)
 
 export interface FileRoutesByFullPath {
-  '/{-$site_name}': typeof Char123Site_nameChar125_notFoundRoute
+  '/{-$site_name}': typeof Char123Site_nameChar125RouteWithChildren
   '/{-$site_name}/': typeof Char123Site_nameChar125IndexRoute
 }
 export interface FileRoutesByTo {
@@ -40,7 +34,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/{-$site_name}': typeof Char123Site_nameChar125RouteWithChildren
-  '/{-$site_name}/__not-found': typeof Char123Site_nameChar125_notFoundRoute
   '/{-$site_name}/': typeof Char123Site_nameChar125IndexRoute
 }
 export interface FileRouteTypes {
@@ -48,11 +41,7 @@ export interface FileRouteTypes {
   fullPaths: '/{-$site_name}' | '/{-$site_name}/'
   fileRoutesByTo: FileRoutesByTo
   to: '/{-$site_name}'
-  id:
-    | '__root__'
-    | '/{-$site_name}'
-    | '/{-$site_name}/__not-found'
-    | '/{-$site_name}/'
+  id: '__root__' | '/{-$site_name}' | '/{-$site_name}/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -75,25 +64,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123Site_nameChar125IndexRouteImport
       parentRoute: typeof Char123Site_nameChar125Route
     }
-    '/{-$site_name}/__not-found': {
-      id: '/{-$site_name}/__not-found'
-      path: ''
-      fullPath: '/{-$site_name}'
-      preLoaderRoute: typeof Char123Site_nameChar125_notFoundRouteImport
-      parentRoute: typeof Char123Site_nameChar125Route
-    }
   }
 }
 
 interface Char123Site_nameChar125RouteChildren {
-  Char123Site_nameChar125_notFoundRoute: typeof Char123Site_nameChar125_notFoundRoute
   Char123Site_nameChar125IndexRoute: typeof Char123Site_nameChar125IndexRoute
 }
 
 const Char123Site_nameChar125RouteChildren: Char123Site_nameChar125RouteChildren =
   {
-    Char123Site_nameChar125_notFoundRoute:
-      Char123Site_nameChar125_notFoundRoute,
     Char123Site_nameChar125IndexRoute: Char123Site_nameChar125IndexRoute,
   }
 

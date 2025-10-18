@@ -39151,5 +39151,5 @@ const ownedGames: BoardGame[] = [
 
 export default {
     get,
-    // seed,
+    seed,
 };
