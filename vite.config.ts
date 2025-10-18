@@ -4,10 +4,12 @@ import ssrPlugin from "vite-ssr-components/plugin";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 import path from "node:path";
 
 export default defineConfig({
     plugins: [
+        svgr(),
         tailwindcss(),
         tanstackRouter({
             target: "react",

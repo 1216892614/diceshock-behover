@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, transform, useTransform } from "motion/react";
-import LightingLogoIcon from "../icons/LightingLogoIcon";
+import LightingLogoIcon from "@/client/components/icons/LightingLogoIcon";
 import LensFlare from "./LensFlare";
 
 const content = [

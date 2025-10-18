@@ -17,6 +17,7 @@ migrations_dir = "drizzle"
 [[r2_buckets]]
 binding = "R2"
 bucket_name = "diceshock"
+preview_bucket_name = "diceshock-preview"
 
 [[routes]]
 pattern = "next.diceshock.com"

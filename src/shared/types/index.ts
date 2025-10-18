@@ -1,11 +1,7 @@
 /*global NodeJS */
 
 import { userAgentMetaZ } from "@/server/middlewares/serverMetaInj";
-import type * as trpcServer from "@/server/middlewares/trpcServer";
-import type {
-    D1Database,
-    WorkerVersionMetadata,
-} from "@cloudflare/workers-types";
+import type * as trpcServer from "@/server/apis/trpc";
 import { Env } from "hono";
 import z from "zod";
 

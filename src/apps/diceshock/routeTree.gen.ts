@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routers/__root'
 import { Route as Char123Site_nameChar125RouteImport } from './routers/{-$site_name}'
 import { Route as Char123Site_nameChar125IndexRouteImport } from './routers/{-$site_name}/index'
+import { Route as Char123Site_nameChar125InventoryRouteImport } from './routers/{-$site_name}/inventory'
+import { Route as Char123Site_nameChar125DiceshockAgentsRouteImport } from './routers/{-$site_name}/diceshock-agents'
+import { Route as Char123Site_nameChar125ContactUsRouteImport } from './routers/{-$site_name}/contact-us'
 import { Route as Char123Site_nameChar125_notFoundRouteImport } from './routers/{-$site_name}/__not-found'
 
 const Char123Site_nameChar125Route = Char123Site_nameChar125RouteImport.update({
@@ -24,6 +27,24 @@ const Char123Site_nameChar125IndexRoute =
     path: '/',
     getParentRoute: () => Char123Site_nameChar125Route,
   } as any)
+const Char123Site_nameChar125InventoryRoute =
+  Char123Site_nameChar125InventoryRouteImport.update({
+    id: '/inventory',
+    path: '/inventory',
+    getParentRoute: () => Char123Site_nameChar125Route,
+  } as any)
+const Char123Site_nameChar125DiceshockAgentsRoute =
+  Char123Site_nameChar125DiceshockAgentsRouteImport.update({
+    id: '/diceshock-agents',
+    path: '/diceshock-agents',
+    getParentRoute: () => Char123Site_nameChar125Route,
+  } as any)
+const Char123Site_nameChar125ContactUsRoute =
+  Char123Site_nameChar125ContactUsRouteImport.update({
+    id: '/contact-us',
+    path: '/contact-us',
+    getParentRoute: () => Char123Site_nameChar125Route,
+  } as any)
 const Char123Site_nameChar125_notFoundRoute =
   Char123Site_nameChar125_notFoundRouteImport.update({
     id: '/__not-found',
@@ -32,26 +53,47 @@ const Char123Site_nameChar125_notFoundRoute =
 
 export interface FileRoutesByFullPath {
   '/{-$site_name}': typeof Char123Site_nameChar125_notFoundRoute
+  '/{-$site_name}/contact-us': typeof Char123Site_nameChar125ContactUsRoute
+  '/{-$site_name}/diceshock-agents': typeof Char123Site_nameChar125DiceshockAgentsRoute
+  '/{-$site_name}/inventory': typeof Char123Site_nameChar125InventoryRoute
   '/{-$site_name}/': typeof Char123Site_nameChar125IndexRoute
 }
 export interface FileRoutesByTo {
   '/{-$site_name}': typeof Char123Site_nameChar125IndexRoute
+  '/{-$site_name}/contact-us': typeof Char123Site_nameChar125ContactUsRoute
+  '/{-$site_name}/diceshock-agents': typeof Char123Site_nameChar125DiceshockAgentsRoute
+  '/{-$site_name}/inventory': typeof Char123Site_nameChar125InventoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/{-$site_name}': typeof Char123Site_nameChar125RouteWithChildren
   '/{-$site_name}/__not-found': typeof Char123Site_nameChar125_notFoundRoute
+  '/{-$site_name}/contact-us': typeof Char123Site_nameChar125ContactUsRoute
+  '/{-$site_name}/diceshock-agents': typeof Char123Site_nameChar125DiceshockAgentsRoute
+  '/{-$site_name}/inventory': typeof Char123Site_nameChar125InventoryRoute
   '/{-$site_name}/': typeof Char123Site_nameChar125IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/{-$site_name}' | '/{-$site_name}/'
+  fullPaths:
+    | '/{-$site_name}'
+    | '/{-$site_name}/contact-us'
+    | '/{-$site_name}/diceshock-agents'
+    | '/{-$site_name}/inventory'
+    | '/{-$site_name}/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/{-$site_name}'
+  to:
+    | '/{-$site_name}'
+    | '/{-$site_name}/contact-us'
+    | '/{-$site_name}/diceshock-agents'
+    | '/{-$site_name}/inventory'
   id:
     | '__root__'
     | '/{-$site_name}'
     | '/{-$site_name}/__not-found'
+    | '/{-$site_name}/contact-us'
+    | '/{-$site_name}/diceshock-agents'
+    | '/{-$site_name}/inventory'
     | '/{-$site_name}/'
   fileRoutesById: FileRoutesById
 }
@@ -75,6 +117,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123Site_nameChar125IndexRouteImport
       parentRoute: typeof Char123Site_nameChar125Route
     }
+    '/{-$site_name}/inventory': {
+      id: '/{-$site_name}/inventory'
+      path: '/inventory'
+      fullPath: '/{-$site_name}/inventory'
+      preLoaderRoute: typeof Char123Site_nameChar125InventoryRouteImport
+      parentRoute: typeof Char123Site_nameChar125Route
+    }
+    '/{-$site_name}/diceshock-agents': {
+      id: '/{-$site_name}/diceshock-agents'
+      path: '/diceshock-agents'
+      fullPath: '/{-$site_name}/diceshock-agents'
+      preLoaderRoute: typeof Char123Site_nameChar125DiceshockAgentsRouteImport
+      parentRoute: typeof Char123Site_nameChar125Route
+    }
+    '/{-$site_name}/contact-us': {
+      id: '/{-$site_name}/contact-us'
+      path: '/contact-us'
+      fullPath: '/{-$site_name}/contact-us'
+      preLoaderRoute: typeof Char123Site_nameChar125ContactUsRouteImport
+      parentRoute: typeof Char123Site_nameChar125Route
+    }
     '/{-$site_name}/__not-found': {
       id: '/{-$site_name}/__not-found'
       path: ''
@@ -87,6 +150,9 @@ declare module '@tanstack/react-router' {
 
 interface Char123Site_nameChar125RouteChildren {
   Char123Site_nameChar125_notFoundRoute: typeof Char123Site_nameChar125_notFoundRoute
+  Char123Site_nameChar125ContactUsRoute: typeof Char123Site_nameChar125ContactUsRoute
+  Char123Site_nameChar125DiceshockAgentsRoute: typeof Char123Site_nameChar125DiceshockAgentsRoute
+  Char123Site_nameChar125InventoryRoute: typeof Char123Site_nameChar125InventoryRoute
   Char123Site_nameChar125IndexRoute: typeof Char123Site_nameChar125IndexRoute
 }
 
@@ -94,6 +160,12 @@ const Char123Site_nameChar125RouteChildren: Char123Site_nameChar125RouteChildren
   {
     Char123Site_nameChar125_notFoundRoute:
       Char123Site_nameChar125_notFoundRoute,
+    Char123Site_nameChar125ContactUsRoute:
+      Char123Site_nameChar125ContactUsRoute,
+    Char123Site_nameChar125DiceshockAgentsRoute:
+      Char123Site_nameChar125DiceshockAgentsRoute,
+    Char123Site_nameChar125InventoryRoute:
+      Char123Site_nameChar125InventoryRoute,
     Char123Site_nameChar125IndexRoute: Char123Site_nameChar125IndexRoute,
   }
 

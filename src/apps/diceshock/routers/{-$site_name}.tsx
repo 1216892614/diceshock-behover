@@ -1,7 +1,7 @@
-import NavBar from "@/client/components/NavBar";
-import InPixelFilter from "@/client/components/svg-filters/in-pixel";
-import NoiseFilter from "@/client/components/svg-filters/noise";
-import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
+import Footer from "@/client/components/diceshock/Footer";
+import Header from "@/client/components/diceshock/Header";
+import Msg from "@/client/components/diceshock/Msg";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/{-$site_name}")({
     component: _Home,
@@ -10,10 +10,13 @@ export const Route = createFileRoute("/{-$site_name}")({
 function _Home() {
     return (
         <>
+            <Header />
+
             <Outlet />
 
-            <NoiseFilter />
-            <InPixelFilter />
+            <Footer />
+
+            <Msg />
         </>
     );
 }

@@ -1,7 +1,7 @@
-import Hero from "@/client/components/home-page/Hero";
-import TheShockScreen from "@/client/components/home-page/TheShockScreen";
-import TitleScreen from "@/client/components/home-page/TitleScreen";
-import NavBar from "@/client/components/NavBar";
+import Hero from "@/client/components/runespark/home-page/Hero";
+import TheShockScreen from "@/client/components/runespark/home-page/TheShockScreen";
+import TitleScreen from "@/client/components/runespark/home-page/TitleScreen";
+import NavBar from "@/client/components/runespark/NavBar";
 import { createFileRoute, useParams } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/{-$site_name}/")({

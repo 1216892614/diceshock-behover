@@ -1,10 +1,10 @@
 import { ListIcon, MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
-import DiceshockTextLogo from "./icons/DiceshockTextLogo";
-import ThemeSwap from "./ThemeSwap";
+import DiceshockTextLogo from "../icons/DiceshockTextLogo";
+import ThemeSwap from "../ThemeSwap";
 
 import clsx from "clsx";
 import { MouseEventHandler, useState } from "react";
-import useCrossData from "../hooks/useCrossData";
+import useCrossData from "../../hooks/useCrossData";
 
 export default function NavBar() {
     const { UserAgentMeta: serverData } = useCrossData() ?? {};

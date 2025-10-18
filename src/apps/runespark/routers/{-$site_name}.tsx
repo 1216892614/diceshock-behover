@@ -1,4 +1,4 @@
-import NavBar from "@/client/components/NavBar";
+import NavBar from "@/client/components/runespark/NavBar";
 import InPixelFilter from "@/client/components/svg-filters/in-pixel";
 import NoiseFilter from "@/client/components/svg-filters/noise";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";

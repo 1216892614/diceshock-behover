@@ -1,11 +1,4 @@
-import {
-    ArrowDownIcon,
-    FanIcon,
-    LightningIcon,
-} from "@phosphor-icons/react/dist/ssr";
-import LightingLogoIcon from "../icons/LightingLogoIcon";
 import ZdogComponent from "./Zdog";
-import InPixelFilter from "../svg-filters/in-pixel";
 
 const END_SLASH = (
     <span className="absolute top-1 -right-7 rotate-12 size-8 bg-base-200 border-l-2" />

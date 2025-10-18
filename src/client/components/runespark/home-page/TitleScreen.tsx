@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactNode } from "react";
 import { motion, useScroll, useTransform, transform } from "motion/react";
 
 export default function TitleScreen({

@@ -1,8 +1,6 @@
 import { drizzle } from "drizzle-orm/d1";
-import { Context } from "hono";
+import * as schema from "./schema";
 
-import { HonoCtxEnv } from "@/shared/types";
-
-export default function db(c: Context<HonoCtxEnv>) {
-    return drizzle(c.env.DB);
+export default function db(d1: D1Database) {
+    return drizzle(d1, { schema });
 }
