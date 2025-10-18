@@ -62,38 +62,35 @@ const get = publicProcedure
         return games;
     });
 
-// const seed = publicProcedure.mutation(async ({ input, ctx }) => {
-//     for (const game of ownedGames) {
-//         const mapped = game.player_num.map((num, index) => ({
-//             type: num,
-//             support: index + 1,
-//         }));
+const seed = publicProcedure.mutation(async ({ input, ctx }) => {
+    for (const game of ownedGames) {
+        const mapped = game.player_num.map((num, index) => ({
+            type: num,
+            support: index + 1,
+        }));
 
-//         await db(ctx.env.DB)
-//             .insert(boardGamesTable)
-//             .values({
-//                 sch_name: game.sch_name,
-//                 eng_name: game.eng_name,
-//                 gstone_id: game.id,
-//                 gstone_rating: game.gstone_rating,
-//                 category: game.category,
-//                 mode: game.mode,
-//                 player_num: mapped
-//                     .filter((i) => i.type === 1)
-//                     .map((i) => i.support),
-//                 best_player_num: mapped
-//                     .filter((i) => i.type === 1)
-//                     .map((i) => i.support),
-//                 content: game,
-//             });
-//     }
+        await db(ctx.env.DB)
+            .insert(boardGamesTable)
+            .values({
+                sch_name: game.sch_name,
+                eng_name: game.eng_name,
+                gstone_id: game.id,
+                gstone_rating: game.gstone_rating,
+                category: game.category,
+                mode: game.mode,
+                player_num: mapped
+                    .filter((i) => i.type === 1)
+                    .map((i) => i.support),
+                best_player_num: mapped
+                    .filter((i) => i.type === 1)
+                    .map((i) => i.support),
+                content: game,
+            });
+    }
 
-//     return "ok";
-// });
+    return "ok";
+});
 
-/**
- * 
- 
 const ownedGames: BoardGame[] = [
     {
         is_mm: 0,
@@ -39151,7 +39148,6 @@ const ownedGames: BoardGame[] = [
         gstone_rating: 8.5479,
     },
 ];
-*/
 
 export default {
     get,
