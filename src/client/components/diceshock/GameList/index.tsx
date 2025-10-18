@@ -8,7 +8,9 @@ import { useInView } from "@react-spring/web";
 import uniqBy from "lodash/uniqBy";
 import clsx from "clsx";
 
-const GameList: React.FC<{ className?: string }> = ({ className }) => {
+const GameList: React.FC<{ className?: { outer?: string, filter?: string } }> = ({
+    className,
+}) => {
     const filter = useAtomValue(filterCfgA);
 
     const [games, setGames] = useState<BoardGame[] | null>(null);
@@ -66,10 +68,10 @@ const GameList: React.FC<{ className?: string }> = ({ className }) => {
             className={clsx(
                 "bg-neutral rounded-xl shadow-lg p-2 min-h-[calc(100vh-10rem)]",
                 "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-2",
-                className
+                className?.outer
             )}
         >
-            <Filter />
+            <Filter className={className?.filter} />
 
             <RawList games={games} />
 

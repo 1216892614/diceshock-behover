@@ -14,6 +14,7 @@ import { toggleArr } from "@/shared/utils/arr";
 import { Recipe } from "@/shared/types/kits";
 import { produce } from "immer";
 import z from "zod/v4";
+import clsx from "clsx";
 
 export const filterCfgZ = z.object({
     tags: z.array(z.enum(["SCORE_RACE", "RPG", "PARTY"])),
@@ -42,7 +43,10 @@ const Filter: React.FC<{ className?: string }> = ({ className }) => {
 
     return (
         <div
-            className={`sticky top-24 md-20 mb-6 col-span-full w-full flex flex-col z-20 ${className}`}
+            className={clsx(
+                "sticky md-20 mb-6 col-span-full w-full flex flex-col z-20",
+                className
+            )}
         >
             <div className="w-full flex flex-wrap justify-between">
                 <label className="input input-bordered input-lg flex items-center w-full">

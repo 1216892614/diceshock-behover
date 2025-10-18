@@ -151,7 +151,11 @@ const BoardGame = () => {
             </div>
             <div className="relative mt-[55rem] lg:mt-[20rem] m-2">
                 <ClientOnly>
-                    <GameList className="w-auto h-[calc(100vh-5rem)] m-2 overflow-y-hidden bg-gradient-to-b from-transparent pl-2" />
+                    <GameList
+                        className={{
+                            outer: "w-auto h-[calc(100vh-5rem)] m-2 overflow-y-hidden bg-gradient-to-b from-transparent pl-2",
+                        }}
+                    />
                 </ClientOnly>
 
                 <div className="absolute top-0 size-full bg-gradient-to-b from-transparent to-base-100 pointer-events-none" />

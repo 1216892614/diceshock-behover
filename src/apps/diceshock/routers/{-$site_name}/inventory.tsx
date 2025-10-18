@@ -8,7 +8,7 @@ export const Route = createFileRoute("/{-$site_name}/inventory")({
 function RouteComponent() {
     return (
         <main className="max-w-full min-h-screen overflow-x-clip py-14 px-4">
-            <GameList />
+            <GameList className={{ filter: "top-24" }} />
         </main>
     );
 }
