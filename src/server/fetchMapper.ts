@@ -33,6 +33,8 @@ const fetchMapper: (
 
         if (pathname.startsWith("/apis")) prefix = "/apis";
 
+        if (pathname.startsWith("/edge")) prefix = "/edge";
+
         if (import.meta.env.DEV) prefix = "/";
 
         if (!prefix)
